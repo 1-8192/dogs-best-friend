@@ -7,6 +7,7 @@ import { Route, withRouter, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Doglist from './containers/Doglist'
+import About from './components/About'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </header>
       <main>
         <Switch>
+          <Route path="/about" component={About} />
           <Route path="/dogs" component={Doglist} />
           <Route path="/" component={Home} />
         </Switch>
