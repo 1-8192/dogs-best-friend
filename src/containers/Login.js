@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { registerOrLoginUser } from '../redux/userActions'
 
 class Login extends Component {
   state = {
@@ -13,16 +14,27 @@ class Login extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    let url = "http://localhost:3005/api/v1/login"
+    let logUser = this.state
+
+    this.props.registerOrLoginUser(url, logUser)
+    this.props.history.push('/profile')
+  }
+
   render () {
     return (
       <div className="hero is-light">
         <div className="hero body">
           <div className="container">
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <label htmlFor="username">User Name:</label>
               <input onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1"/><br/>
               <label htmlFor="password">Password:</label>
               <input onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd"/><br/>
+              <input className="button is-primary" type="submit" value="Log In" />
             </form>
           </div>
         </div>
@@ -31,5 +43,10 @@ class Login extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    registerOrLoginUser: (url, inputUser) => dispatch(registerOrLoginUser(url, inputUser))
+  }
+}
 
-export default Login
+export default connect(null, mapDispatchToProps)(Login)

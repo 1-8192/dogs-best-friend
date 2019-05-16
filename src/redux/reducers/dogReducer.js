@@ -9,7 +9,7 @@ const dogReducer = (state = initialState, action) => {
   switch(action.type){
     case 'ADD_DOGS':
 
-      return {...state, dogs_array: action.dogs}
+      return {...state, dogs_array: action.dogs, is_fetching: !state.is_fetching}
 
     case 'DOGS_IS_FETCHING':
 

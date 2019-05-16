@@ -1,0 +1,67 @@
+import React from 'react'
+import { Redirect } from 'react-router-dom'
+
+export function fetchingUser(bool) {
+  return {
+    type: 'FETCHING_USER',
+    isRegistering: bool
+  }
+}
+
+export function registerOrLoginUser(url, inputUser) {
+  return dispatch => {
+    dispatch(fetchingUser(true))
+
+    fetch(url, {
+      method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          user: inputUser
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          console.log(data.error)
+          alert('Oops, please try again')
+        } else {
+        localStorage.setItem('token', data.jwt)
+        dispatch({ type: 'LOG_IN_USER', data})
+        }
+      })
+    }
+  }
+
+  export function logOut() {
+    localStorage.removeItem('token')
+    return dispatch => {
+      dispatch({ type: 'LOG_OUT_USER'})
+    }
+  }
+
+  export function deleteUser(url) {
+    return dispatch => {
+      dispatch(fetchingUser(true))
+
+      fetch(url, {
+        method: 'DELETE',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+      })
+      .then(response => response.json())
+      .then( data => {
+        if (data.error) {
+          console.log(data.error)
+          alert('Oops, something went wrong')
+        } else {
+            localStorage.removeItem('token')
+            dispatch({type: 'LOG_OUT_USER'})
+      }
+    })
+    }
+  }

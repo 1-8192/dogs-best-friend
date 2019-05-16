@@ -12,6 +12,7 @@ import About from './components/About'
 import Doglist from './containers/Doglist'
 import Register from './containers/Register'
 import Login from './containers/Login'
+import Profile from './containers/Profile'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/dogs" component={Doglist} />
           <Route path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
           <Route path="/register" component={Register} />
           <Route path="/" component={Home} />
         </Switch>
