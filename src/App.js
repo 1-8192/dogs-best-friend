@@ -6,8 +6,12 @@ import { Route, withRouter, Switch } from 'react-router-dom'
 //components
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Doglist from './containers/Doglist'
 import About from './components/About'
+
+//containers
+import Doglist from './containers/Doglist'
+import Register from './containers/Register'
+import Login from './containers/Login'
 
 function App() {
   return (
@@ -19,6 +23,8 @@ function App() {
         <Switch>
           <Route path="/about" component={About} />
           <Route path="/dogs" component={Doglist} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           <Route path="/" component={Home} />
         </Switch>
       </main>
