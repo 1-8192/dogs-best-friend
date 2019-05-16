@@ -5,12 +5,12 @@ import DogCard from '../components/DogCard'
 
 class Doglist extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchDogs('http://localhost:3005/api/v1/dogs')
-  }
-
   state = {
     displayDogs: []
+  }
+
+  componentDidMount() {
+    this.props.fetchDogs('http://localhost:3005/api/v1/dogs')
   }
 
   render () {

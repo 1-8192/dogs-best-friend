@@ -65,3 +65,29 @@ export function registerOrLoginUser(url, inputUser) {
     })
     }
   }
+
+  export function editUser(url, userEdit) {
+    return dispatch => {
+      dispatch(fetchingUser(true))
+
+      fetch(url, {
+        method: 'PATCH',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({
+          user: userEdit
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          console.log(data.error)
+          alert('Oops, something went wrong')
+        } else {
+            dispatch({type: 'LOG_IN_USER', data})
+      }
+    })
+    }
+  }
