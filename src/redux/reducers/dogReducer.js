@@ -1,19 +1,23 @@
-import { fetchDogs, dogsIsFetching } from '../dogActions'
 
 const initialState = {
-  dogs_array: [],
-  is_fetching: false
+  dogs_array: []
 }
 
 const dogReducer = (state = initialState, action) => {
   switch(action.type){
     case 'ADD_DOGS':
 
-      return {...state, dogs_array: action.dogs, is_fetching: !state.is_fetching}
+      return {...state, dogs_array: action.dogs}
 
-    case 'DOGS_IS_FETCHING':
+    case 'UPDATE_DOGS':
 
-      return {...state, is_fetching: action.isFetching}
+      return state.dogs_array.map(dog => {
+        if (dog.id === action.dog.id) {
+          return action.dog
+        } else {
+          return dog
+        }
+      })
 
     default:
 

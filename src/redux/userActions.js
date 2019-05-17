@@ -1,5 +1,3 @@
-import React from 'react'
-import { Redirect } from 'react-router-dom'
 
 export function registerOrLoginUser(url, inputUser) {
   return dispatch => {
@@ -76,7 +74,8 @@ export function registerOrLoginUser(url, inputUser) {
           console.log(data.error)
           alert('Oops, something went wrong')
         } else {
-            dispatch({type: 'UPDATE_USER', data})
+          let user = data
+            dispatch({type: 'UPDATE_USER', user})
       }
     })
     }

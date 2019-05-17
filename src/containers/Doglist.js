@@ -24,8 +24,7 @@ class Doglist extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    dogs: state.dogs.dogs_array,
-    isFetching: state.is_fetching
+    dogs: state.dogs.dogs_array
   }
 }
 
