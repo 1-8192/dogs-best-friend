@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 
 const DogDisplay = (props) => {
   return (
-    <div>
-      <img className="is-square" alt={props.location.state.dog.name} src={props.location.state.dog.image_url} />
-      <ul>
+    <div column-is-centered>
+      <figure className="image is-square">
+        <img alt={props.location.state.dog.name} src={props.location.state.dog.image_url} />
+      </figure>
+      <ul className="notification">
         <li>Name: {props.location.state.dog.name}</li>
         <li>Chip id: {props.location.state.dog.chip_id}</li>
         <li>Sex: {props.location.state.dog.sex}</li>
