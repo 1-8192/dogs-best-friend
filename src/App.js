@@ -18,7 +18,7 @@ import EditProfile from './containers/EditProfile'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header has-navbar-fixed-top">
         <Navbar/>
       </header>
       <main>

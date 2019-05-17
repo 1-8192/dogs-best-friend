@@ -26,7 +26,7 @@ class Login extends Component {
 
   render () {
     return (
-      <div className="hero is-light">
+      <div className="hero is-light is-vcentered">
         <div className="hero body">
           <div className="container">
             <form onSubmit={this.handleSubmit}>

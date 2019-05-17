@@ -1,16 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-export function fetchingUser(bool) {
-  return {
-    type: 'FETCHING_USER',
-    isRegistering: bool
-  }
-}
-
 export function registerOrLoginUser(url, inputUser) {
   return dispatch => {
-    dispatch(fetchingUser(true))
 
     fetch(url, {
       method: 'POST',
@@ -44,7 +36,6 @@ export function registerOrLoginUser(url, inputUser) {
 
   export function deleteUser(url) {
     return dispatch => {
-      dispatch(fetchingUser(true))
 
       fetch(url, {
         method: 'DELETE',
@@ -68,7 +59,6 @@ export function registerOrLoginUser(url, inputUser) {
 
   export function editUser(url, userEdit) {
     return dispatch => {
-      dispatch(fetchingUser(true))
 
       fetch(url, {
         method: 'PATCH',
@@ -86,7 +76,7 @@ export function registerOrLoginUser(url, inputUser) {
           console.log(data.error)
           alert('Oops, something went wrong')
         } else {
-            dispatch({type: 'LOG_IN_USER', data})
+            dispatch({type: 'UPDATE_USER', data})
       }
     })
     }
