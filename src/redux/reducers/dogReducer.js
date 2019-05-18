@@ -1,3 +1,5 @@
+import { fetchDogs } from '../dogActions'
+import { postDonation } from '../donationActions'
 
 const initialState = {
   dogs_array: []

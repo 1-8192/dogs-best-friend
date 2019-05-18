@@ -3,14 +3,22 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const DogDisplay = (props) => {
+
+  const add = (a,b) => {
+    return a+b
+  }
+
+  let paymentArray = props.location.state.dog.payments.map(payment => parseFloat(payment.amount))
+  const donationTotal = paymentArray.reduce(add, 0)
+
   return (
-    <div column-is-centered>
+    <div className="column-is-centered">
       <figure className="image is-square">
         <img alt={props.location.state.dog.name} src={props.location.state.dog.image_url} />
       </figure>
       <ul className="notification">
         <li>Name: {props.location.state.dog.name}</li>
-        <li>Chip id: {props.location.state.dog.chip_id}</li>
+        <li>Chip: {props.location.state.dog.chip_id}</li>
         <li>Sex: {props.location.state.dog.sex}</li>
         <li>Breed: {props.location.state.dog.breed}</li>
         <li>At-risk: {props.location.state.dog.at_risk ? "yes" : "no"}</li>
@@ -19,6 +27,13 @@ const DogDisplay = (props) => {
           <Link to="/shelters"><strong>{props.location.state.dog.shelter.name}</strong></Link>
         </li>
       </ul>
+      <div>
+        <h3> Other donors who have helped {props.location.state.dog.name} </h3>
+        <ul>
+          {props.location.state.dog.users.map(user => <li>{user.username}</li>)}
+        </ul>
+      </div>
+      <h4>Total raised for {props.location.state.dog.name} so far: ${donationTotal}</h4>
       { props.user ?
       <Link className="button is-primary" to={{pathname: '/donation',
         state: {

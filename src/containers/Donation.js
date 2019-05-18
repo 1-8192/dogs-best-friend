@@ -7,7 +7,8 @@ import { postDonation } from '../redux/donationActions'
 class Donation extends Component {
   state = {
     amount: "",
-    note: ""
+    note: "",
+    isMessageHidden: true
   }
 
   handleChange = (event) => {
@@ -27,11 +28,22 @@ class Donation extends Component {
       dog_id: this.props.location.state.dog.id
     }
     postDonation(url, donation)
+    this.setState({
+      isMessageHidden: !this.state.isMessageHidden
+    })
   }
 
   render() {
     return (
       <div>
+        {this.state.isMessageHidden ? null :
+          <div className="hero is-light">
+            <div className="hero-body">
+              <div className="container">
+                <h1 className="title logo-font">Thank you for helping {this.props.location.state.dog.name}!</h1>
+              </div>
+            </div>
+          </div>}
         {this.props.user ?
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="amount">Donation Amount:</label>
@@ -56,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
     postDonation: (url, donation) => dispatch(postDonation(url, donation))
   }
 }
-export default connect(mapStateToProps)(Donation)
+export default connect(mapStateToProps, mapDispatchToProps)(Donation)

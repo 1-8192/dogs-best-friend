@@ -9,13 +9,13 @@ const DogCard = (props) => {
 
   return (
     <div className="card column is-one-third">
-      <div class="card-image">
-        <figure class="image">
+      <div className="card-image">
+        <figure className="image">
           <img src={props.dog.image_url} alt={props.dog.name}/>
         </figure>
       </div>
-      <div class="media-content">
-        <p class="title is-4 is-centered">{props.dog.name}</p>
+      <div className="media-content">
+        <p className="title is-4 is-centered">{props.dog.name}</p>
         <Link className="button is-light" to={{pathname: dogLink(props.dog.id),
           state: {
             dog: props.dog

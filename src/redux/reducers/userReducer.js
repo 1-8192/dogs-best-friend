@@ -1,3 +1,5 @@
+import { registeringUser, registerOrLoginUser, logOut } from '../userActions'
+import { postDonation } from '../donationActions'
 
 const initialState = {
   currentUser: {},
