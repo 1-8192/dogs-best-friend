@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+//Actions
 import { registerOrLoginUser } from '../redux/userActions'
 
 class Register extends Component {
@@ -24,6 +26,13 @@ class Register extends Component {
     let newUser = this.state
 
     this.props.registerOrLoginUser(url, newUser)
+    this.setState({
+      username: "",
+      email: "",
+      payment_info: "",
+      password: "",
+      password_confirmation: ""
+    })
     this.props.history.push("/profile")
   }
 

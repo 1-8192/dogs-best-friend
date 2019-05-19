@@ -1,5 +1,6 @@
 export function postDonation(url, donation) {
-  return (dispatch) => {
+
+  return dispatch => {
 
    fetch(url, {
     method: 'POST',
@@ -20,8 +21,8 @@ export function postDonation(url, donation) {
       } else {
         let user = data.user
         let dog = data.dog
-        dispatch('UPDATE_USER', user)
-        dispatch('UPDATE_DOG', dog)
+        dispatch({type: 'UPDATE_USER', user})
+        dispatch({type: 'UPDATE_DOG', dog})
       }
     })
   }

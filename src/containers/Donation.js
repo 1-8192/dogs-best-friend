@@ -27,8 +27,10 @@ class Donation extends Component {
       user_id: this.props.user.id,
       dog_id: this.props.location.state.dog.id
     }
-    postDonation(url, donation)
+    this.props.postDonation(url, donation)
     this.setState({
+      amount: "",
+      note: "",
       isMessageHidden: !this.state.isMessageHidden
     })
   }
@@ -68,4 +70,5 @@ const mapDispatchToProps = (dispatch) => {
     postDonation: (url, donation) => dispatch(postDonation(url, donation))
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Donation)

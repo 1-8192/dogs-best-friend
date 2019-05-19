@@ -28,7 +28,7 @@ const DogDisplay = (props) => {
         </li>
       </ul>
       <div>
-        <h3> Other donors who have helped {props.location.state.dog.name} </h3>
+        <h3> Other donors who have helped {props.location.state.dog.name}: </h3>
         <ul>
           {props.location.state.dog.users.map(user => <li>{user.username}</li>)}
         </ul>

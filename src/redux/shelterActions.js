@@ -1,6 +1,6 @@
 
 export function fetchShelters(url) {
-  return (dispatch) => {
+  return dispatch => {
 
     fetch(url)
       .then(response => response.json())
