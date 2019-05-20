@@ -8,6 +8,7 @@ const DogDisplay = (props) => {
     return a+b
   }
 
+  //finds sum of payments related to dog
   let paymentArray = props.location.state.dog.payments.map(payment => parseFloat(payment.amount))
   const donationTotal = paymentArray.reduce(add, 0)
 

@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom'
 
 //Actions
 import { logOut, deleteUser } from '../redux/userActions'
+import { fetchDogs } from '../redux/dogActions'
 
 //Components
 import DogCard from '../components/DogCard'
@@ -14,25 +15,27 @@ const totalDonated = (props) => {
   return total
 }
 
-const Profile = (props) => {
+class Profile extends Component {
 
+  render() {
   return (
     <div>
-      { props.user ?
+      { this.props.user ?
         <Fragment>
-        <h1> Welcome, {props.user.username} </h1>
+        <h1> Welcome, {this.props.user.username} </h1>
         <div className="is-multiline is-3-mobile is-3-desktop">
           <h3> Dogs you've helped</h3>
-          {props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
+          {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
         </div>
-        <h3>Total donated: ${totalDonated(props)}</h3>
-        <Link className="button is-light" to="/edit_profile">Edit Profile</Link>
-        <input onClick={props.logOut} className="button is-light" type="submit" value="Log Out" />
-        <input onClick={()=> {props.deleteUser(`http://localhost:3005/api/v1/users/${props.user.id}`)}} className="button is-danger" type="submit" value="Unregister" />
+        <h3>Total donated: ${totalDonated(this.props)}</h3>
+        <Link className="button is-info is-outlined" to="/edit_profile">Edit Profile</Link>
+        <input onClick={this.props.logOut} className="button is-warning is-outlined" type="submit" value="Log Out" />
+        <input onClick={()=> {this.props.deleteUser(`http://localhost:3005/api/v1/users/${this.props.user.id}`)}} className="button is-danger is-outlined" type="submit" value="Unregister" />
         </Fragment>
         : <h1> Please Log In </h1>}
     </div>
   )
+}
 }
 
 const mapStateToProps = (state) => {
@@ -47,4 +50,5 @@ const mapDispatchToProps = (dispatch) => {
     deleteUser: (url) => dispatch(deleteUser(url))
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

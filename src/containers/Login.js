@@ -34,7 +34,7 @@ class Login extends Component {
               <input className="input is-info" onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1"/><br/>
               <label htmlFor="password">Password:</label>
               <input className="input is-info" onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd"/><br/>
-              <input className="button is-primary" type="submit" value="Log In" />
+              <input className="button is-success is-outlined" type="submit" value="Log In" />
             </form>
           </div>
         </div>

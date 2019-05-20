@@ -10,6 +10,11 @@ const Navbar = (props) => {
     <nav className="navbar is-fixed-top is-mobile is-light" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to="/" className="logo-font">Dog's Best Friend</Link>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
     </div>
     <div className="navbar-menu is-active">
         <div className="navbar-start">
@@ -20,13 +25,13 @@ const Navbar = (props) => {
         <div className="navbar-end">
           {props.user ? (
             <div className="buttons">
-              <Link className="button is-primary" to="/profile"><strong>My Profile</strong></Link>
-              <Link className="button is-light" to="/logout" onClick={props.logout}><strong>Logout</strong></Link>
+              <Link className="button is-info is-outlined" to="/profile"><strong>My Profile</strong></Link>
+              <input className="button is-success is-outlined" type="submit" onClick={props.logOut} value="Logout" />
             </div>
           ) : (
             <div className="buttons">
-              <Link className="button is-primary" to="/register"><strong>Register</strong></Link>
-              <Link className="button is-light" to="/login">Log in</Link>
+              <Link className="button is-info is-outlined" to="/register"><strong>Register</strong></Link>
+              <Link className="button is-success is-outlined" to="/login">Log in</Link>
             </div>
           )}
         </div>

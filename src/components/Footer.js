@@ -4,7 +4,7 @@ const Footer =() =>{
   return (
     <footer className="is-fixed-bottom is-mobile">
       <div className="content has-text-centered">
-        <strong>Dog's Best Friend</strong>   by Alessandro Allegranzi.
+        <strong>Dog's Best Friend</strong> by Alessandro Allegranzi. © 2019
       </div>
     </footer>
   )
