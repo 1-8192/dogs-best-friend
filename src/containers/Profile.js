@@ -8,12 +8,6 @@ import { logOut, deleteUser } from '../redux/userActions'
 //Components
 import DogCard from '../components/DogCard'
 
-const helpedDogs = (props) => {
-  const helpedDogsSet = new Set(props.user.dogs)
-  console.log(helpedDogsSet)
-  return helpedDogsSet
-}
-
 const totalDonated = (props) => {
   let total = 0
   props.user.payments.forEach(payment => total += payment.amount)
@@ -29,12 +23,12 @@ const Profile = (props) => {
         <h1> Welcome, {props.user.username} </h1>
         <div className="is-multiline is-3-mobile is-3-desktop">
           <h3> Dogs you've helped</h3>
-          {helpedDogs(props).map(dog => <DogCard key={dog.id} dog={dog} />)}
+          {props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
         </div>
         <h3>Total donated: ${totalDonated(props)}</h3>
         <Link className="button is-light" to="/edit_profile">Edit Profile</Link>
         <input onClick={props.logOut} className="button is-light" type="submit" value="Log Out" />
-        <input onClick={()=> {props.deleteUser(`http://localhost:3005/api/v1/users/${props.user.id}`)}} className="button is-light" type="submit" value="Unregister" />
+        <input onClick={()=> {props.deleteUser(`http://localhost:3005/api/v1/users/${props.user.id}`)}} className="button is-danger" type="submit" value="Unregister" />
         </Fragment>
         : <h1> Please Log In </h1>}
     </div>
