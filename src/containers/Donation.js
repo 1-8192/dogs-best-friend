@@ -49,10 +49,10 @@ class Donation extends Component {
         {this.props.user ?
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="amount">Donation Amount:</label>
-          <input onChange={this.handleChange} name="amount" type="number" min="0.01" step="0.01" placeholder="$0.00" value={this.state.amount} /><br/>
+          <input className="input is-success" onChange={this.handleChange} name="amount" type="number" min="0.01" step="0.01" placeholder="$0.00" value={this.state.amount} /><br/>
           <label htmlFor="note">Include optional note:</label>
-          <textarea onChange={this.handleChange} name="note" rows="5" cols="20" value={this.state.note} /><br/>
-          <input className="button is-primary" type="submit" value="Donate" />
+          <textarea className="input is-success" onChange={this.handleChange} name="note" rows="10" cols="40" value={this.state.note} /><br/>
+          <input className="input is-success" className="button is-primary" type="submit" value="Donate" />
         </form> : <h1>Please log in to make a donation</h1>}
       </div>
     )

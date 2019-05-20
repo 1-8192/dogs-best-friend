@@ -31,9 +31,9 @@ class Login extends Component {
           <div className="container">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="username">User Name:</label>
-              <input onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1"/><br/>
+              <input className="input is-info" onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1"/><br/>
               <label htmlFor="password">Password:</label>
-              <input onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd"/><br/>
+              <input className="input is-info" onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd"/><br/>
               <input className="button is-primary" type="submit" value="Log In" />
             </form>
           </div>

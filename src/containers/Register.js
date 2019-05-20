@@ -43,15 +43,15 @@ class Register extends Component {
           <div className="container">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="email">Email:</label>
-              <input onChange={this.handleChange} type="email" name="email" placeholder="doglover@dogs.com" value={this.state.email} /><br/>
+              <input className="input is-info" onChange={this.handleChange} type="email" name="email" placeholder="doglover@dogs.com" value={this.state.email} /><br/>
               <label htmlFor="username">User Name:</label>
-              <input onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1" value={this.state.username} /><br/>
+              <input className="input is-info" onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1" value={this.state.username} /><br/>
               <label htmlFor="payment_info">Credit Card:</label>
-              <input onChange={this.handleChange} type="payment_info" name="payment_info" placeholder="000-000-000-000" value={this.state.payment_info} /><br/>
+              <input className="input is-info" onChange={this.handleChange} type="payment_info" name="payment_info" placeholder="000-000-000-000" value={this.state.payment_info} /><br/>
               <label htmlFor="password">Password:</label>
-              <input onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd" value={this.state.password} /><br/>
+              <input className="input is-info" onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd" value={this.state.password} /><br/>
               <label htmlFor="password_confirmation">Confirm Password:</label>
-              <input onChange={this.handleChange} type="password_confirmation" name="password_confirmation" placeholder="p@ssw0rd" value={this.state.password_confirmation} /><br/>
+              <input className="input is-info" onChange={this.handleChange} type="password_confirmation" name="password_confirmation" placeholder="p@ssw0rd" value={this.state.password_confirmation} /><br/>
               <input className="button is-primary" type="submit" value="Register" />
             </form>
           </div>

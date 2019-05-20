@@ -15,7 +15,7 @@ class Doglist extends React.Component {
 
   render () {
     return (
-      <div className="is-multiline is-3-mobile is-3-desktop">
+      <div className="columns is-multiline is-3-mobile is-3-desktop">
         {this.props.dogs.map(singleDog => <DogCard key={singleDog.id} dog={singleDog} />)}
       </div>
     )

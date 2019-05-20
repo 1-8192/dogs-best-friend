@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
 import DogDisplay from './components/DogDisplay'
+import Footer from './components/Footer'
 
 //containers
 import Doglist from './containers/Doglist'
@@ -24,20 +25,23 @@ function App() {
       <header className="App-header has-navbar-fixed-top">
         <Navbar/>
       </header>
-      <main>
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/dogs/:id" component={DogDisplay} />
-          <Route path="/dogs" component={Doglist} />
-          <Route path="/donation" component={Donation} />
-          <Route path="/edit_profile" component={EditProfile} />
-          <Route path="/login" component={Login} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/register" component={Register} />
-          <Route path="/shelters" component={Shelterlist} />
-          <Route path="/" component={Home} />
-        </Switch>
-      </main>
+      <body>
+        <main>
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/dogs/:id" component={DogDisplay} />
+            <Route path="/dogs" component={Doglist} />
+            <Route path="/donation" component={Donation} />
+            <Route path="/edit_profile" component={EditProfile} />
+            <Route path="/login" component={Login} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/register" component={Register} />
+            <Route path="/shelters" component={Shelterlist} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </main>
+      </body>
+      <Footer />
     </div>
   );
 }
