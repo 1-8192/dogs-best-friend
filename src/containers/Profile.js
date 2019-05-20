@@ -9,15 +9,9 @@ import { logOut, deleteUser } from '../redux/userActions'
 import DogCard from '../components/DogCard'
 
 const helpedDogs = (props) => {
-  let dogArray = []
-  props.user.dogs.forEach(dog => {
-    if (!dogArray.includes(dog, dog.name)) {
-      dogArray.push(dog)
-    } else {
-      return null
-    }
-  })
-  return dogArray
+  const helpedDogsSet = new Set(props.user.dogs)
+  console.log(helpedDogsSet)
+  return helpedDogsSet
 }
 
 const totalDonated = (props) => {

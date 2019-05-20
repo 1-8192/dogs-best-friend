@@ -10,7 +10,7 @@ const DogCard = (props) => {
   return (
     <div className="card column is-one-third">
       <div className="card-image">
-        <figure className="image">
+        <figure className="image is-square">
           <img src={props.dog.image_url} alt={props.dog.name}/>
         </figure>
       </div>
