@@ -19,6 +19,7 @@ export function postDonation(url, donation) {
         console.log(data.error.message)
         alert('Oops, something went wrong :-(')
       } else {
+        console.log(data)
         let user = data.user
         let dog = data.dog
         dispatch({type: 'UPDATE_USER', user})
