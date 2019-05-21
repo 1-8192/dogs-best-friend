@@ -10,3 +10,7 @@
   font-family: 'Shadows Into Light', cursive;
   font-size: 25px;
 }
+
+.zoom:hover {
+  transform: scale(1.05)
+}
