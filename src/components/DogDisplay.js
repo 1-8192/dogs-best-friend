@@ -15,10 +15,10 @@ const DogDisplay = (props) => {
   return (
     <section className="section">
       <div className="container">
-          <figure className="image is-5by4">
+          <figure className="image is-5by4 is-size-1-mobile">
             <img alt={props.location.state.dog.name} src={props.location.state.dog.image_url} />
           </figure>
-        <ul className="notification">
+        <ul className="notification text-is-centered">
           <li>Name: {props.location.state.dog.name}</li>
           <li>Chip: {props.location.state.dog.chip_id}</li>
           <li>Sex: {props.location.state.dog.sex}</li>

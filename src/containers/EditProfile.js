@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
 //Actions
@@ -31,16 +31,19 @@ class EditProfile extends Component {
   render () {
     return (
       <div>
-        <h2>Edit Your Profile information:</h2>
-        <form onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input onChange={this.handleChange} type="email" name="email" value={this.state.email}/><br/>
-        <label htmlFor="username">User Name:</label>
-        <input onChange={this.handleChange}  type="username" name="username" value={this.state.username}/><br/>
-        <label htmlFor="payment_info">Credit Card:</label>
-        <input onChange={this.handleChange} type="payment_info" name="payment_info" value={this.state.payment_info}/><br/>
-        <input className="button is-primary" type="submit" value="Update User Info" />
-        </form>
+        {this.props.user ?
+        <Fragment>
+          <h2>Edit Your Profile information:</h2>
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="email">Email:</label>
+            <input onChange={this.handleChange} type="email" name="email" value={this.state.email}/><br/>
+            <label htmlFor="username">User Name:</label>
+            <input onChange={this.handleChange}  type="username" name="username" value={this.state.username}/><br/>
+            <label htmlFor="payment_info">Credit Card:</label>
+            <input onChange={this.handleChange} type="payment_info" name="payment_info" value={this.state.payment_info}/><br/>
+            <input className="button is-primary is-outlined" type="submit" value="Update User Info" />
+          </form>
+        </Fragment> : <h1>Oops, you don't have access to this page :-( </h1>}
       </div>
     )
   }

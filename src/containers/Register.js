@@ -52,7 +52,7 @@ class Register extends Component {
               <input className="input is-info" onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd" value={this.state.password} /><br/>
               <label htmlFor="password_confirmation">Confirm Password:</label>
               <input className="input is-info" onChange={this.handleChange} type="password_confirmation" name="password_confirmation" placeholder="p@ssw0rd" value={this.state.password_confirmation} /><br/>
-              <input className="button is-primary" type="submit" value="Register" />
+              <input className="button is-primary is-outlined" type="submit" value="Register" />
             </form>
           </div>
         </div>
