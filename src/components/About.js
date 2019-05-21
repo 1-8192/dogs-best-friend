@@ -10,7 +10,7 @@ const About = () => {
         <p>Dog's Best Friend lets you browse real, local shelter dogs and donate anything you can spare in their name, giving them
         a better chance to find a permament home. Payments are secure, and 100% of your donation goes directly to the animal shelter housing the dog you choose to support,
         and specifically in the dog's name.</p><br/>
-      <p> The dogs featured on this site are real NY shelter dogs scraped from the <a href="https://www.nycacc.org/">Animal Care Centers of NYC</a> website.</p>
+        <p> The dogs featured on this site are real NY shelter dogs scraped from the <a href="https://www.nycacc.org/">Animal Care Centers of NYC</a> website.</p><br/>
       </div>
     </section>
   )
