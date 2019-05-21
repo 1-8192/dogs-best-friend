@@ -22,7 +22,7 @@ class DogDisplay extends Component {
             <figure className="image is-5by4 is-size-1-mobile">
               <img alt={this.props.dog.name} src={this.props.dog.image_url} />
             </figure>
-          <ul className="notification text-is-centered">
+          <ul className="notification">
             <li>Name: {this.props.dog.name}</li>
             <li>Chip: {this.props.dog.chip_id}</li>
             <li>Sex: {this.props.dog.sex}</li>
@@ -30,22 +30,24 @@ class DogDisplay extends Component {
             <li>At-risk: {this.props.dog.at_risk ? "yes" : "no"}</li>
             <li>Vaccines: {this.props.dog.is_vaccinated ? "up to date" : "needs vaccines"}</li>
             <li>Current Animal Shelter:
-              <Link to="/shelters"><strong>shelter</strong></Link>
+              <Link to="/shelters"><strong>{this.props.dog.shelter ? this.props.dog.shelter.name : null}</strong></Link>
             </li>
           </ul>
-          <div>
+          <div className="has-text-centered">
             <h3> Donors who have helped {this.props.dog.name}: </h3>
             <ul>
               {this.props.dog.users ? this.props.dog.users.map(user => <li>{user.username}</li>) : null}
             </ul>
           </div>
-          <h4>Total raised for {this.props.dog.name} so far: {this.props.totalPayments}</h4>
-          { this.props.user ?
-          <Link className="button is-primary" to={{pathname: '/donation',
-            state: {
-              dog: this.props.dog
-            }}}><strong>Donate to help {this.props.dog.name}</strong></Link> :
-            null}
+          <div className="has-text-centered">
+            <h4>Total raised for {this.props.dog.name} so far: ${this.props.totalPayments}</h4>
+            { this.props.user ?
+            <Link className="button is-primary" to={{pathname: '/donation',
+              state: {
+                dog: this.props.dog
+              }}}><strong>Donate to help {this.props.dog.name}</strong></Link> :
+              null}
+          </div>
         </div>
       </section>
     )
