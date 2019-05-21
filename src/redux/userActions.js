@@ -18,6 +18,7 @@ export function registerOrLoginUser(url, inputUser) {
           console.log(data.error)
           alert('Oops, please try again')
         } else {
+        console.log(data)
         localStorage.setItem('token', data.jwt)
         dispatch({ type: 'LOG_IN_USER', data})
         }
