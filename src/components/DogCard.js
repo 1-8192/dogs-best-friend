@@ -18,7 +18,7 @@ const DogCard = (props) => {
         <p className="title is-4 is-centered">{props.dog.name}</p>
         <Link className="button is-info" to={{pathname: dogLink(props.dog.id),
           state: {
-            dog: props.dog
+            dogId: props.dog.id
           }}}><strong>Learn More about {props.dog.name}</strong></Link>
       </div>
     </div>

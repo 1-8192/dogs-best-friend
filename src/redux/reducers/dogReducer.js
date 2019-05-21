@@ -1,8 +1,12 @@
-import { fetchDogs } from '../dogActions'
+import { fetchDogs, fetchShowDog } from '../dogActions'
 import { postDonation } from '../donationActions'
 
 const initialState = {
-  dogs_array: []
+  dogs_array: [],
+  show_dog: {
+    dog: {},
+    total_payments: ""
+  }
 }
 
 const dogReducer = (state = initialState, action) => {
@@ -20,6 +24,10 @@ const dogReducer = (state = initialState, action) => {
           return dog
         }
       })
+
+    case 'ADD_SHOW_DOG':
+
+      return {...state, show_dog: action.dogData}
 
     default:
 

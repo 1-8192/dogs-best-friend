@@ -7,10 +7,10 @@ import { Route, withRouter, Switch } from 'react-router-dom'
 import Navbar from './containers/Navbar'
 import Home from './components/Home'
 import About from './components/About'
-import DogDisplay from './components/DogDisplay'
 import Footer from './components/Footer'
 
 //containers
+import DogDisplay from './containers/DogDisplay'
 import Doglist from './containers/Doglist'
 import Register from './containers/Register'
 import Login from './containers/Login'

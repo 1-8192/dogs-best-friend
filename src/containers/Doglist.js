@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect }  from 'react-redux'
-import { fetchDogs } from '../redux/dogActions'
 import DogCard from '../components/DogCard'
+
+//Actions
+import { fetchDogs } from '../redux/dogActions'
 
 class Doglist extends React.Component {
 
