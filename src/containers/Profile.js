@@ -9,12 +9,6 @@ import { fetchDogs } from '../redux/dogActions'
 //Components
 import DogCard from '../components/DogCard'
 
-const totalDonated = (props) => {
-  let total = 0
-  props.user.payments.forEach(payment => total += payment.amount)
-  return total
-}
-
 class Profile extends Component {
 
   render() {
@@ -28,7 +22,7 @@ class Profile extends Component {
               <h3> Grateful pups:</h3>
               {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
             </div>
-            <h3>Total donated: ${totalDonated(this.props)}</h3>
+            <h3>Total donated: ${this.props.totalPayments}</h3>
             <Link className="button is-info is-outlined" to="/edit_profile">Edit Profile</Link>
             <input onClick={this.props.logOut} className="button is-warning is-outlined" type="submit" value="Log Out" />
             <input onClick={()=> {this.props.deleteUser(`http://localhost:3005/api/v1/users/${this.props.user.id}`)}} className="button is-danger is-outlined" type="submit" value="Unregister" />
@@ -42,7 +36,8 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.currentUser.user
+    user: state.user.currentUser.user,
+    totalPayments: state.user.currentUser.total_payments
   }
 }
 

@@ -41,7 +41,7 @@ class Donation extends Component {
         {this.state.isMessageHidden ? null :
           <div className="hero is-light">
             <div className="hero-body">
-              <div className="container">
+              <div className="container has-text-centered">
                 <h1 className="title logo-font">Thank you for helping {this.props.location.state.dog.name}!</h1>
               </div>
             </div>
