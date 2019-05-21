@@ -4,7 +4,7 @@ import './App.css';
 import { Route, withRouter, Switch } from 'react-router-dom'
 
 //components
-import Navbar from './components/Navbar'
+import Navbar from './containers/Navbar'
 import Home from './components/Home'
 import About from './components/About'
 import DogDisplay from './components/DogDisplay'
