@@ -1,4 +1,4 @@
-import { registeringUser, registerOrLoginUser, logOut } from '../userActions'
+import { registeringUser, registerOrLoginUser, logOut, persistAuthOnRefresh } from '../userActions'
 import { postDonation } from '../donationActions'
 
 const initialState = {

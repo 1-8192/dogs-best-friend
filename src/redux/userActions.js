@@ -18,7 +18,6 @@ export function registerOrLoginUser(url, inputUser) {
           console.log(data.error)
           alert('Oops, please try again')
         } else {
-        console.log(data)
         localStorage.setItem('token', data.jwt)
         dispatch({ type: 'LOG_IN_USER', data})
         }
@@ -71,13 +70,37 @@ export function registerOrLoginUser(url, inputUser) {
       })
       .then(response => response.json())
       .then(data => {
-        if (data.error) {
-          console.log(data.error)
+        if (data.message) {
+          console.log(data.message)
           alert('Oops, something went wrong')
         } else {
           let user = data
             dispatch({type: 'UPDATE_USER', user})
       }
     })
+    }
+  }
+
+  export function persistAuthOnRefresh(url) {
+    return dispatch => {
+      if (localStorage.getItem('token')) {
+        return fetch(url, {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message) {
+            console.log(data)
+          } else {
+            console.log(data)
+            dispatch({type: 'LOG_IN_USER', data})
+          }
+        })
+      }
     }
   }

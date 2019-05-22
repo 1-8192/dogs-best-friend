@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, withRouter, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 //components
 import Navbar from './containers/Navbar'
@@ -19,31 +20,45 @@ import EditProfile from './containers/EditProfile'
 import Shelterlist from './containers/Shelterlist'
 import Donation from './containers/Donation'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header has-navbar-fixed-top">
-        <Navbar/>
-      </header>
-      <body>
-        <main>
-          <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/dogs/:id" component={DogDisplay} />
-            <Route path="/dogs" component={Doglist} />
-            <Route path="/donation" component={Donation} />
-            <Route path="/edit_profile" component={EditProfile} />
-            <Route path="/login" component={Login} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/register" component={Register} />
-            <Route path="/shelters" component={Shelterlist} />
-            <Route path="/" component={Home} />
-          </Switch>
-        </main>
-      </body>
-      <Footer />
-    </div>
-  );
+//Actions
+import { persistAuthOnRefresh } from './redux/userActions'
+
+class App extends Component {
+
+  componentDidMount(){
+    this.props.persistAuthOnRefresh("http://localhost:3005/api/v1/profile")
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header has-navbar-fixed-top">
+          <Navbar/>
+        </header>
+          <main>
+            <Switch>
+              <Route path="/about" component={About} />
+              <Route path="/dogs/:id" component={DogDisplay} />
+              <Route path="/dogs" component={Doglist} />
+              <Route path="/donation" component={Donation} />
+              <Route path="/edit_profile" component={EditProfile} />
+              <Route path="/login" component={Login} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/register" component={Register} />
+              <Route path="/shelters" component={Shelterlist} />
+              <Route path="/" component={Home} />
+            </Switch>
+          </main>
+        <Footer />
+      </div>
+    )
+  }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    persistAuthOnRefresh: (url) => dispatch(persistAuthOnRefresh(url))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App)
