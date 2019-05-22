@@ -97,7 +97,6 @@ export function registerOrLoginUser(url, inputUser) {
           if (data.message) {
             console.log(data)
           } else {
-            console.log(data)
             dispatch({type: 'LOG_IN_USER', data})
           }
         })

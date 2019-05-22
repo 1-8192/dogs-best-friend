@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, withRouter, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { StripeProvider, Elements } from 'react-stripe-elements'
 
 //components
 import Navbar from './containers/Navbar'
@@ -31,26 +32,30 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header has-navbar-fixed-top">
-          <Navbar/>
-        </header>
-          <main>
-            <Switch>
-              <Route path="/about" component={About} />
-              <Route path="/dogs/:id" component={DogDisplay} />
-              <Route path="/dogs" component={Doglist} />
-              <Route path="/donation" component={Donation} />
-              <Route path="/edit_profile" component={EditProfile} />
-              <Route path="/login" component={Login} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/register" component={Register} />
-              <Route path="/shelters" component={Shelterlist} />
-              <Route path="/" component={Home} />
-            </Switch>
-          </main>
-        <Footer />
-      </div>
+      <StripeProvider apiKey="pk_test_vUyt1s1mB1YbVWsHk8Fsgafd00Q0CPWtg0">
+        <Elements>
+        <div className="App">
+          <header className="App-header has-navbar-fixed-top">
+            <Navbar/>
+          </header>
+            <main>
+              <Switch>
+                <Route path="/about" component={About} />
+                <Route path="/dogs/:id" component={DogDisplay} />
+                <Route path="/dogs" component={Doglist} />
+                <Route path="/donation" component={Donation} />
+                <Route path="/edit_profile" component={EditProfile} />
+                <Route path="/login" component={Login} />
+                <Route path="/profile" component={Profile} />
+                <Route path="/register" component={Register} />
+                <Route path="/shelters" component={Shelterlist} />
+                <Route path="/" component={Home} />
+              </Switch>
+            </main>
+          <Footer />
+        </div>
+      </Elements>
+    </StripeProvider>
     )
   }
 }
