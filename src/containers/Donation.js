@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 //Actions
 import { postDonation } from '../redux/donationActions'
@@ -43,6 +44,7 @@ class Donation extends Component {
             <div className="hero-body">
               <div className="container has-text-centered">
                 <h1 className="title logo-font">Thank you for helping {this.props.location.state.dog.name}!</h1>
+                <Link className="button is-info is-outlined" to="/dogs">back to dogs</Link>
               </div>
             </div>
           </div>}
