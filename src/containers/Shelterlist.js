@@ -17,9 +17,9 @@ componentDidMount(){
     return (
       <section className="section">
         <div className="container">
-          <h1>Partner Shelters</h1>
+          <h1>Partner Shelters:</h1>
           <br/>
-          <div is-multiline is-3-mobile is-3-desktop>
+          <div className="is-multiline is-3-mobile is-3-desktop is-centered">
             {this.props.shelters.map(singleShelter => <ShelterCard key={singleShelter.id} shelter={singleShelter} />)}
           </div>
         </div>

@@ -46,7 +46,7 @@ class DogDisplay extends Component {
               state: {
                 dog: this.props.dog
               }}}><strong>Donate to help {this.props.dog.name}</strong></Link> :
-              null}
+              <h3><strong>Please log in or register to help {this.props.dog.name}</strong></h3>}
           </div>
         </div>
       </section>
