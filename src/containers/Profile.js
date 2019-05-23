@@ -28,7 +28,7 @@ class Profile extends Component {
             <input onClick={()=> {this.props.deleteUser(`http://localhost:3005/api/v1/users/${this.props.user.id}`)}} className="button is-danger is-outlined" type="submit" value="Unregister" />
           </div>
         </section>
-        : <h1> Please Log In </h1>}
+        : <Link to="/login">Please log in</Link>}
     </div>
   )
 }

@@ -9,7 +9,6 @@ export function fetchDogs(url) {
 }
 
 export function fetchShowDog(url) {
-  console.log('1')
   return dispatch => {
     fetch(url)
       .then(response => response.json())

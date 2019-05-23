@@ -28,3 +28,31 @@ export function postDonation(url, donation) {
     })
   }
 }
+
+export function postCharge(url, token, charge) {
+  console.log(url, token, charge)
+  return dispatch => {
+    console.log('test')
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({
+          token: token.id,
+          charge: charge
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          console.log(data.error.message)
+          alert('Oops, something went wrong :-(')
+        } else {
+          console.log(data)
+        }
+      })
+    }
+  }

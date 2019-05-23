@@ -46,7 +46,7 @@ class Navbar extends Component {
           {this.props.user ? (
             <div className="buttons">
               <Link className="button is-info is-outlined" to="/profile"><strong>My Profile</strong></Link>
-              <input className="button is-success is-outlined" type="submit" onClick={this.props.logOut} value="Logout" />
+              <input className="button is-warning is-outlined" type="submit" onClick={this.props.logOut} value="Logout" />
             </div>
           ) : (
             <div className="buttons">
