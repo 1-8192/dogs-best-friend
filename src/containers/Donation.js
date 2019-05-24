@@ -8,11 +8,11 @@ import StripeCheckout from 'react-stripe-checkout'
 import { postDonation, postCharge } from '../redux/donationActions'
 
 class Donation extends Component {
-  state = {
-    amount: "",
-    note: "",
-    isMessageHidden: true
-  }
+    state = {
+      amount: "",
+      note: "",
+      isMessageHidden: true
+    }
 
   handleChange = (event) => {
     this.setState({
@@ -20,7 +20,7 @@ class Donation extends Component {
     })
   }
 
-  handleAmountSubmit = (event) => {
+  handleAmountSubmit = async event => {
     event.preventDefault()
 
     //post charge to my backend
@@ -35,13 +35,24 @@ class Donation extends Component {
 
     //post charge to stripe
     let url2 = "http://localhost:3005/api/v1/charges"
+    let chargeToken = await this.props.stripe.createToken({name: "Name"})
     let charge = {
       amount: this.state.amount * 100,
       currency: 'usd',
-      description: this.state.note
+      description: this.state.note,
+      token: chargeToken.token.id
     }
-    let chargeToken = this.props.stripe.createToken({name: "Name"})
-    this.props.postCharge(url2, chargeToken, charge)
+    let response = await fetch(url2, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      },
+      body: JSON.stringify({
+        charge: charge
+      })
+    })
 
     //clear form state
     this.setState({
@@ -90,7 +101,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     postDonation: (url, donation) => dispatch(postDonation(url, donation)),
-    postCharge: (url, token, charge) => dispatch(postCharge(url, token, charge))
+    postCharge: (url, charge) => dispatch(postCharge(url, charge))
   }
 }
 

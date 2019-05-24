@@ -29,8 +29,7 @@ export function postDonation(url, donation) {
   }
 }
 
-export function postCharge(url, token, charge) {
-  console.log(url, token, charge)
+export function postCharge(url, charge) {
   return dispatch => {
     console.log('test')
       fetch(url, {
@@ -41,7 +40,6 @@ export function postCharge(url, token, charge) {
           'Authorization': `Bearer ${localStorage.getItem("token")}`
         },
         body: JSON.stringify({
-          token: token.id,
           charge: charge
         })
       })
