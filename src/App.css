@@ -40,3 +40,12 @@
 .zoom:hover {
   transform: scale(1.05)
 }
+
+.donation-form {
+height: 100vh;
+padding: 0;
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+align-items: center;
+}

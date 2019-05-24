@@ -19,7 +19,7 @@ componentDidMount(){
         <div className="container">
           <h1>Partner Shelters:</h1>
           <br/>
-          <div className="is-multiline is-3-mobile is-3-desktop is-centered">
+          <div className="is-multiline is-3-mobile is-3-desktop has-text-centered">
             {this.props.shelters.map(singleShelter => <ShelterCard key={singleShelter.id} shelter={singleShelter} />)}
           </div>
         </div>
