@@ -29,7 +29,7 @@ class Navbar extends Component {
     return (
     <nav className="navbar is-fixed-top is-mobile has-background-white-ter" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <Link to="/" className="logo-font">Dog's Best Friend</Link>
+      <Link to="/" className="logo-font has-text-weight-semibold">Dog's Best Friend</Link>
         <a onClick={this.toggleActive} role="button" className={this.state.burgerActive} aria-label="menu" aria-expanded="false" >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
