@@ -20,7 +20,10 @@ export function postDonation(url, donation) {
         alert('Oops, something went wrong :-(')
       } else {
         console.log(data)
-        let user = data.user
+        let user = {
+          user: data.user,
+          total_payments: data.total_payments
+        }
         let dog = data.dog
         dispatch({type: 'UPDATE_USER', user})
         dispatch({type: 'UPDATE_DOG', dog})
@@ -28,29 +31,3 @@ export function postDonation(url, donation) {
     })
   }
 }
-
-export function postCharge(url, charge) {
-  return dispatch => {
-    console.log('test')
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`
-        },
-        body: JSON.stringify({
-          charge: charge
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          console.log(data.error.message)
-          alert('Oops, something went wrong :-(')
-        } else {
-          console.log(data)
-        }
-      })
-    }
-  }

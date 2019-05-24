@@ -74,7 +74,7 @@ export function registerOrLoginUser(url, inputUser) {
           console.log(data.message)
           alert('Oops, something went wrong')
         } else {
-          let user = data
+            let user = data
             dispatch({type: 'UPDATE_USER', user})
       }
     })

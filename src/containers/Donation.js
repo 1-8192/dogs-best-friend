@@ -5,7 +5,7 @@ import { CardElement, injectStripe } from 'react-stripe-elements'
 import StripeCheckout from 'react-stripe-checkout'
 
 //Actions
-import { postDonation, postCharge } from '../redux/donationActions'
+import { postDonation } from '../redux/donationActions'
 
 class Donation extends Component {
     state = {
@@ -24,14 +24,14 @@ class Donation extends Component {
     event.preventDefault()
 
     //post charge to my backend
-    // let url = "http://localhost:3005/api/v1/payments"
-    // let donation = {
-    //   amount: this.state.amount,
-    //   note: this.state.note,
-    //   user_id: this.props.user.id,
-    //   dog_id: this.props.location.state.dog.id
-    // }
-    // this.props.postDonation(url, donation)
+    let url = "http://localhost:3005/api/v1/payments"
+    let donation = {
+      amount: this.state.amount,
+      note: this.state.note,
+      user_id: this.props.user.id,
+      dog_id: this.props.location.state.dog.id
+    }
+    this.props.postDonation(url, donation)
 
     //post charge to stripe
     let url2 = "http://localhost:3005/api/v1/charges"
@@ -100,8 +100,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postDonation: (url, donation) => dispatch(postDonation(url, donation)),
-    postCharge: (url, charge) => dispatch(postCharge(url, charge))
+    postDonation: (url, donation) => dispatch(postDonation(url, donation))
   }
 }
 

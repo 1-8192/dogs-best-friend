@@ -18,7 +18,7 @@ const userReducer = (state = initialState, action) => {
 
     case 'UPDATE_USER':
 
-      return {...state, currentUser: {...state.currentUser, user: { ...state.currentUser.user, ...action.user}}}
+      return {...state, currentUser: action.user}
 
     default:
 
