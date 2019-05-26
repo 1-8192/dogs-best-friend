@@ -8,7 +8,7 @@ import { fetchDogs } from '../redux/dogActions'
 class Doglist extends Component {
 
   state = {
-    displayDogs: []
+    dogsAreSorted: false
   }
 
   componentDidMount() {
@@ -17,13 +17,20 @@ class Doglist extends Component {
 
   handleClick = () => {
     this.props.fetchDogs('http://localhost:3005/api/v1/need')
+    this.setState({
+      dogsAreSorted: !this.state.dogsAreSorted
+    })
   }
 
   render () {
     return (
       <Fragment>
         <div className="box has-text-centered">
-          <button onClick={this.handleClick} className="button is-link is-rounded">Show me dogs who need my help!</button><br/>
+          {this.state.dogsAreSorted ?
+            <p>These dogs have received the least amount of donations to date:</p> :
+            <Fragment>
+              <button onClick={this.handleClick} className="button is-link is-rounded">Show me dogs who need my help!</button><br/>
+            </Fragment>}
         </div>
         <div className="columns is-multiline is-3-mobile is-3-desktop">
           {this.props.dogs.map(singleDog => <DogCard key={singleDog.id} dog={singleDog} />)}
