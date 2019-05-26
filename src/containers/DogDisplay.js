@@ -33,6 +33,7 @@ class DogDisplay extends Component {
               <Link to="/shelters"><strong>{this.props.dog.shelter ? this.props.dog.shelter.name : null}</strong></Link>
             </li>
           </ul>
+          <p>{this.props.dog.description}</p><br/>
           <div className="has-text-centered">
             <h3> Donors who have helped {this.props.dog.name}: </h3>
             <ul>

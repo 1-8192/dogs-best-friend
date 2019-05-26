@@ -8,7 +8,6 @@ class Register extends Component {
   state = {
     username: "",
     email: "",
-    payment_info: "",
     password: "",
     password_confirmation: ""
   }
@@ -29,7 +28,6 @@ class Register extends Component {
     this.setState({
       username: "",
       email: "",
-      payment_info: "",
       password: "",
       password_confirmation: ""
     })
@@ -46,8 +44,6 @@ class Register extends Component {
               <input className="input is-info" onChange={this.handleChange} type="email" name="email" placeholder="doglover@dogs.com" value={this.state.email} /><br/>
               <label htmlFor="username">User Name:</label>
               <input className="input is-info" onChange={this.handleChange}  type="username" name="username" placeholder="puppylover1" value={this.state.username} /><br/>
-              <label htmlFor="payment_info">Credit Card:</label>
-              <input className="input is-info" onChange={this.handleChange} type="payment_info" name="payment_info" placeholder="000-000-000-000" value={this.state.payment_info} /><br/>
               <label htmlFor="password">Password:</label>
               <input className="input is-info" onChange={this.handleChange} type="password" name="password" placeholder="p@ssw0rd" value={this.state.password} /><br/>
               <label htmlFor="password_confirmation">Confirm Password:</label>

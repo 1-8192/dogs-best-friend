@@ -9,7 +9,6 @@ class EditProfile extends Component {
     id: "",
     username: "",
     email: "",
-    payment_info: "",
   }
 
   handleChange = (event) => {
@@ -38,8 +37,6 @@ class EditProfile extends Component {
               <input className="input is-info" onChange={this.handleChange} type="email" name="email" value={this.state.email} placeholder={this.props.user.email}/><br/>
               <label htmlFor="username">User Name:</label>
               <input className="input is-info" onChange={this.handleChange}  type="username" name="username" value={this.state.username} placeholder={this.props.user.username}/><br/>
-              <label htmlFor="payment_info">Credit Card:</label>
-              <input className="input is-info" onChange={this.handleChange} type="payment_info" name="payment_info" value={this.state.payment_info} placeholder={this.props.user.payment_info}/><br/>
               <div className="has-text-centered">
                 <input className="button is-success" type="submit" value="Update User Info" />
               </div>
