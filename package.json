@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.7.4",
+    "dotenv": "^8.0.0",
     "mocha": "^6.1.4",
     "react": "^16.8.6",
     "react-bulma-components": "2.3.0",

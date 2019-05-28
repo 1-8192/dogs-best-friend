@@ -12,10 +12,6 @@ class DogDisplay extends Component {
   }
 
   render() {
-    const add = (a,b) => {
-      return a+b
-    }
-
     return (
       <section className="section">
         <div className="container">
@@ -43,7 +39,7 @@ class DogDisplay extends Component {
           <div className="has-text-centered">
             <h4>Total raised for {this.props.dog.name} so far: ${this.props.totalPayments}</h4>
             { this.props.user ?
-            <Link className="button is-primary" to={{pathname: '/donation',
+            <Link className="button is-success" to={{pathname: '/donation',
               state: {
                 dog: this.props.dog
               }}}><strong>Donate to help {this.props.dog.name}</strong></Link> :

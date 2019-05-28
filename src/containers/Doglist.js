@@ -12,7 +12,7 @@ class Doglist extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchDogs('http://localhost:3005/api/v1/dogs')
+    this.props.fetchDogs("http://localhost:3005/api/v1/dogs")
   }
 
   handleClick = () => {

@@ -1,5 +1,3 @@
-import { fetchShelters } from '../shelterActions'
-
 const initialState = {
   shelterArray: []
 }

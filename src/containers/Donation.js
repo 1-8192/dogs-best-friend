@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { CardElement, injectStripe } from 'react-stripe-elements'
@@ -11,7 +11,8 @@ class Donation extends Component {
     state = {
       amount: "",
       note: "",
-      isMessageHidden: true
+      isMessageHidden: true,
+      modalState: "modal"
     }
 
   handleChange = (event) => {
@@ -56,11 +57,22 @@ class Donation extends Component {
 
     //clear form state
     this.setState({
+      isMessageHidden: !this.state.isMessageHidden,
+      modalState: "modal is-active"
+    })
+  }
+
+  modalClose = () => {
+    this.setState({
       amount: "",
       note: "",
       cardElement: "",
-      isMessageHidden: !this.state.isMessageHidden
+      modalState: "modal"
     })
+  }
+
+  printReceipt = () => {
+    window.print()
   }
 
   render() {
@@ -76,6 +88,13 @@ class Donation extends Component {
             </div>
           </div>}
         {this.props.user ?
+        <Fragment>
+        <section className="section has-text-centered">
+          <div className="container">
+          <img className="image is-128x128" alt={this.props.location.state.dog.name} src={this.props.location.state.dog.image_url} />
+          {this.props.location.state.dog.name} needs your help!
+          </div>
+        </section>
         <div className="donation-form">
           <form onSubmit={this.handleAmountSubmit}>
             <label htmlFor="amount">Donation Amount:</label>
@@ -90,8 +109,33 @@ class Donation extends Component {
             <input className="input is-success" className="button is-success" type="submit" value="Donate" />
           </div>
           </form>
-        </div> : <h1>Please log in to make a donation</h1>}
+        </div>
+        </Fragment> : <h1>Please log in to make a donation</h1>}
         <h3 className="has-text-centered">Payments secured and powered by <a href="https://stripe.com/">Stripe</a></h3>
+          <div className={this.state.modalState}>
+            <div className="modal-background"></div>
+            <div className="modal-card">
+              <header class="modal-card-head">
+                <p className="modal-card-title">Thank you for helping {this.props.location.state.dog.name}!</p>
+                <p className="modal-card-title">Your Payment Receipt</p>
+                <button onClick={this.modalClose} className="delete" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                {this.props.user ?
+                <ul>
+                  <li>your email: {this.props.user.email}</li>
+                  <li>shelter: {this.props.location.state.dog.shelter.name}</li>
+                  <li>amount: {this.state.amount}</li>
+                  <li>dog helped: {this.props.location.state.dog.name}</li>
+                  <li>note: {this.state.note}</li>
+                </ul> : null}
+              </section>
+              <footer class="modal-card-foot">
+                <button onClick={this.printReceipt} className="button is-info">Print</button>
+                <Link className="button is-info is-outlined" to="/dogs">back to dogs</Link>
+              </footer>
+            </div>
+          </div>
       </div>
     )
   }
