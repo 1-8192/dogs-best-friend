@@ -12,7 +12,7 @@ class Donation extends Component {
       amount: "",
       note: "",
       isMessageHidden: true,
-      modalState: "modal"
+      modalState: "modal is-active"
     }
 
   handleChange = (event) => {
@@ -106,7 +106,7 @@ class Donation extends Component {
               <CardElement />
             </div><br/>
           <div className="has-text-centered">
-            <input className="input is-success" className="button is-success" type="submit" value="Donate" />
+            <input className="button is-success" type="submit" value="Donate" />
           </div>
           </form>
         </div>
@@ -115,15 +115,14 @@ class Donation extends Component {
           <div className={this.state.modalState}>
             <div className="modal-background"></div>
             <div className="modal-card">
-              <header class="modal-card-head">
-                <p className="modal-card-title">Thank you for helping {this.props.location.state.dog.name}!</p>
+              <header class="modal-card-head has-text-centered">
                 <p className="modal-card-title">Your Payment Receipt</p>
                 <button onClick={this.modalClose} className="delete" aria-label="close"></button>
               </header>
               <section class="modal-card-body">
                 {this.props.user ?
                 <ul>
-                  <li>your email: {this.props.user.email}</li>
+                  <li>donor email: {this.props.user.email}</li>
                   <li>shelter: {this.props.location.state.dog.shelter.name}</li>
                   <li>amount: {this.state.amount}</li>
                   <li>dog helped: {this.props.location.state.dog.name}</li>
