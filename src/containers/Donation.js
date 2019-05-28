@@ -12,7 +12,7 @@ class Donation extends Component {
       amount: "",
       note: "",
       isMessageHidden: true,
-      modalState: "modal is-active"
+      modalState: "modal"
     }
 
   handleChange = (event) => {
@@ -55,9 +55,10 @@ class Donation extends Component {
       })
     })
 
-    //clear form state
+    //reveal receipt modal and thank you message
     this.setState({
       isMessageHidden: !this.state.isMessageHidden,
+      cardElement: "",
       modalState: "modal is-active"
     })
   }
@@ -89,14 +90,9 @@ class Donation extends Component {
           </div>}
         {this.props.user ?
         <Fragment>
-        <section className="section has-text-centered">
-          <div className="container">
-          <img className="image is-128x128" alt={this.props.location.state.dog.name} src={this.props.location.state.dog.image_url} />
-          {this.props.location.state.dog.name} needs your help!
-          </div>
-        </section>
         <div className="donation-form">
           <form onSubmit={this.handleAmountSubmit}>
+            <h3>{this.props.location.state.dog.name} needs your help!</h3>
             <label htmlFor="amount">Donation Amount:</label>
             <input className="input is-info" onChange={this.handleChange} name="amount" type="number" min="0.01" step="0.01" placeholder="$0.00" value={this.state.amount} /><br/>
             <label htmlFor="note">Include optional note:</label>

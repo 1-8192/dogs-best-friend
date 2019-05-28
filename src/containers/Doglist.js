@@ -32,7 +32,7 @@ class Doglist extends Component {
               <button onClick={this.handleClick} className="button is-link is-rounded">Show me dogs who need my help!</button><br/>
             </Fragment>}
         </div>
-        <div className="columns is-multiline is-3-mobile is-3-desktop">
+        <div className="columns is-multiline is-3-desktop">
           {this.props.dogs.map(singleDog => <DogCard key={singleDog.id} dog={singleDog} />)}
         </div>
       </Fragment>

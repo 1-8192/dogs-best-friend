@@ -16,13 +16,13 @@ class Profile extends Component {
     <div>
       { this.props.user ?
         <section>
-          <div className="container">
-            <h1> Welcome, {this.props.user.username}! </h1>
-            <div className="is-multiline is-3-mobile is-3-desktop">
-              <h3> Grateful pups:</h3>
+          <div className="container has-text-centered text-is-strong">
+            <h1> Welcome, {this.props.user.username}! </h1><br/>
+            <h3> GRATEFUL PUPS YOU'VE HELPED:</h3><br/>
+            <div className="columns is-multiline is-centered is-3-desktop">
               {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
-            </div>
-            <h3>Total donated: ${this.props.totalPayments}</h3>
+            </div><br/>
+            <h3>Total donated to date: ${this.props.totalPayments}</h3>
             <Link className="button is-info is-outlined" to="/edit_profile">Edit Profile</Link>
             <input onClick={this.props.logOut} className="button is-warning is-outlined" type="submit" value="Log Out" />
             <input onClick={()=> {this.props.deleteUser(`http://localhost:3005/api/v1/users/${this.props.user.id}`)}} className="button is-danger is-outlined" type="submit" value="Unregister" />

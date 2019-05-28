@@ -15,13 +15,14 @@ class DogDisplay extends Component {
     return (
       <section className="section">
         <div className="container">
-            <figure className="image is-5by4 is-size-1-mobile">
+            <figure className="image is-5by4-desktop is-size-1-mobile">
               <img alt={this.props.dog.name} src={this.props.dog.image_url} />
             </figure>
           <ul className="notification">
             <li>Name: {this.props.dog.name}</li>
             <li>Chip: {this.props.dog.chip_id}</li>
             <li>Sex: {this.props.dog.sex}</li>
+            <li>Age: {this.props.dog.age}</li>
             <li>Breed: {this.props.dog.breed}</li>
             <li>At-risk: {this.props.dog.at_risk ? "yes" : "no"}</li>
             <li>Vaccines: {this.props.dog.is_vaccinated ? "up to date" : "needs vaccines"}</li>
