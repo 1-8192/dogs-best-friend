@@ -40,6 +40,15 @@
     url(./images/home_image.jpg);
 }
 
+.darken-shelter {
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(./images/shelters.jpg);
+}
+
 .logo-font {
   font-family: 'Shadows Into Light', cursive;
   font-size: 25px;

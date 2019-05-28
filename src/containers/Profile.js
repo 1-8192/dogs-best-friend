@@ -1,10 +1,9 @@
-import React, { Fragment, Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //Actions
 import { logOut, deleteUser } from '../redux/userActions'
-import { fetchDogs } from '../redux/dogActions'
 
 //Components
 import DogCard from '../components/DogCard'

@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { CardElement, injectStripe } from 'react-stripe-elements'
-import StripeCheckout from 'react-stripe-checkout'
 
 //Actions
 import { postDonation } from '../redux/donationActions'
