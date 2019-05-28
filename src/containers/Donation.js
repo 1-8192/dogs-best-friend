@@ -12,7 +12,8 @@ class Donation extends Component {
       amount: "",
       note: "",
       isMessageHidden: true,
-      modalState: "modal"
+      modalState: "modal",
+      loading: false
     }
 
   handleChange = (event) => {
@@ -23,7 +24,9 @@ class Donation extends Component {
 
   handleAmountSubmit = async event => {
     event.preventDefault()
-
+    this.setState({
+      loading: !this.state.loading
+    })
     //post charge to my backend
     let url = "http://localhost:3005/api/v1/payments"
     let donation = {
@@ -59,7 +62,8 @@ class Donation extends Component {
     this.setState({
       isMessageHidden: !this.state.isMessageHidden,
       cardElement: "",
-      modalState: "modal is-active"
+      modalState: "modal is-active",
+      loading: !this.state.loading
     })
   }
 
@@ -67,7 +71,6 @@ class Donation extends Component {
     this.setState({
       amount: "",
       note: "",
-      cardElement: "",
       modalState: "modal"
     })
   }
@@ -77,6 +80,8 @@ class Donation extends Component {
   }
 
   render() {
+    const loading = this.state.loading
+
     return (
       <div>
         {this.state.isMessageHidden ? null :
@@ -102,7 +107,7 @@ class Donation extends Component {
               <CardElement />
             </div><br/>
           <div className="has-text-centered">
-            <input className="button is-success" type="submit" value="Donate" />
+            <input disabled={loading} className="button is-success" type="submit" value="Donate" />
           </div>
           </form>
         </div>
