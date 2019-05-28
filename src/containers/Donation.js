@@ -111,7 +111,7 @@ class Donation extends Component {
           </div>
           </form>
         </div>
-        </Fragment> : <h1>Please log in to make a donation</h1>}
+      </Fragment> : <h1>Please <Link to="/login">log in</Link> to make a donation</h1>}
         <h3 className="has-text-centered">Payments secured and powered by <a href="https://stripe.com/">Stripe</a></h3>
           <div className={this.state.modalState}>
             <div className="modal-background"></div>

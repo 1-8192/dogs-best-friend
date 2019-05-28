@@ -15,9 +15,11 @@ componentDidMount(){
 
   render() {
     return (
-      <section className="section">
+      <section className="section bg-image-shelters">
         <div className="container">
-          <h1>Partner Shelters:</h1>
+          <div className="card has-text-centered">
+            <h1>Partner Shelters:</h1>
+          </div>
           <br/>
           <div className="is-multiline is-3-mobile is-3-desktop has-text-centered">
             {this.props.shelters.map(singleShelter => <ShelterCard key={singleShelter.id} shelter={singleShelter} />)}
