@@ -147,7 +147,7 @@ class Donation extends Component {
                   <li className="has-text-centered">Your Payment Receipt</li><br/>
                   <li>{currentDate}</li><br/>
                   <li>amount: {this.state.amount}</li>
-                  <li>dog name: {this.props.location.state.dog.name}</li>
+                  <li>dog: {this.props.location.state.dog.name}</li>
                   <li>note: {this.state.note}</li>
                   <li>donor email: {this.props.user.email}</li>
                   <li>shelter: {this.props.location.state.dog.shelter.name}</li>
