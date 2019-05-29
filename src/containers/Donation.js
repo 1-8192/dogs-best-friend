@@ -11,7 +11,7 @@ class Donation extends Component {
       amount: "",
       note: "",
       isMessageHidden: true,
-      modalState: "modal",
+      modalState: "modal is-active",
       loading: false
     }
 
@@ -74,12 +74,33 @@ class Donation extends Component {
     })
   }
 
+  setDate() {
+    let date = new Date()
+    let dd = date.getDate()
+    let mm = date.getMonth() + 1
+    let yy = date.getFullYear()
+
+    if(dd < 10) {
+      dd = "0" + dd
+    }
+
+    if (mm < 10) {
+      mm = "0" + mm
+    }
+
+    let today = mm + '/' + dd + '/' + yy
+    return today
+  }
+
   printReceipt = () => {
     window.print()
   }
 
   render() {
     const loading = this.state.loading
+
+    const currentDate = this.setDate()
+
 
     return (
       <div>
@@ -116,17 +137,19 @@ class Donation extends Component {
             <div className="modal-background"></div>
             <div className="modal-card">
               <header class="modal-card-head has-text-centered">
-                <p className="modal-card-title">Your Payment Receipt</p>
+                <p className="modal-card-title logo-font">Dog's Best Friend</p>
                 <button onClick={this.modalClose} className="delete" aria-label="close"></button>
               </header>
               <section class="modal-card-body">
                 {this.props.user ?
                 <ul>
+                  <li className="has-text-centered">Your Payment Receipt</li><br/>
+                  <li>{currentDate}</li><br/>
+                  <li>amount: {this.state.amount}</li>
+                  <li>dog: {this.props.location.state.dog.name}</li>
+                  <li>note: {this.state.note}</li>
                   <li>donor email: {this.props.user.email}</li>
                   <li>shelter: {this.props.location.state.dog.shelter.name}</li>
-                  <li>amount: {this.state.amount}</li>
-                  <li>dog helped: {this.props.location.state.dog.name}</li>
-                  <li>note: {this.state.note}</li>
                 </ul> : null}
               </section>
               <footer class="modal-card-foot">

@@ -17,7 +17,7 @@ class Profile extends Component {
         <section>
           <div className="container has-text-centered text-is-strong">
             <h1> Welcome, {this.props.user.username}! </h1><br/>
-            <h3> GRATEFUL PUPS YOU'VE HELPED:</h3><br/>
+            <h3> GRATEFUL PUPS YOU'VE HELPED</h3><br/>
             <div className="columns is-multiline is-centered is-3-desktop">
               {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
             </div><br/>
