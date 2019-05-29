@@ -2,6 +2,10 @@
   "name": "dogs-best-friend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "yarn": "1.15.12",
+    "node": "12.0.0"
+  },
   "dependencies": {
     "bulma": "^0.7.4",
     "dotenv": "^8.0.0",
