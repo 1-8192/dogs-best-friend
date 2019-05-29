@@ -66,11 +66,11 @@ class Profile extends Component {
     <div>
       { this.props.user ?
         <section>
-          <aside class="menu">
-          <p class="menu-label">
+          <aside className="menu is-fixed-top is-mobile">
+          <p className="menu-label">
           Activity
           </p>
-          <ul class="menu-list">
+          <ul className="menu-list">
           <li><a onClick={this.revealDogs}>Dogs you have helped</a></li>
           <li><a onClick={this.revealPayments}>Payments</a></li>
           </ul>

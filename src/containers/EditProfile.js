@@ -39,8 +39,8 @@ class EditProfile extends Component {
               <label htmlFor="username">User Name:</label>
               <input className="input is-info" onChange={this.handleChange}  type="username" name="username" value={this.state.username} placeholder={this.props.user.username}/><br/>
               <div className="has-text-centered">
-                <input className="button is-success" type="submit" value="Update User Info" />
-                <Link className="button is-warning" to="/profile">Discard Changes</Link>
+                <input className="button is-success is-outlined" type="submit" value="Update User Info" />
+                <Link className="button is-warning is-outlined" to="/profile">Discard Changes</Link>
               </div>
             </form>
         </div> : <h1>Oops, you don't have access to this page :-( </h1>}
