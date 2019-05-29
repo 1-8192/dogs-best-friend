@@ -28,6 +28,14 @@ class EditProfile extends Component {
     this.props.history.push("/profile")
   }
 
+  componentDidMount() {
+    this.setState({
+      id: this.props.user.id,
+      username: this.props.user.username,
+      email: this.props.user.email
+    })
+  }
+
   render () {
     return (
       <div>
@@ -35,9 +43,9 @@ class EditProfile extends Component {
           <div className="donation-form">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="email">Email:</label>
-              <input className="input is-info" onChange={this.handleChange} type="email" name="email" value={this.state.email} placeholder={this.props.user.email}/><br/>
+              <input className="input is-info" onChange={this.handleChange} type="email" name="email" value={this.state.email}/><br/>
               <label htmlFor="username">User Name:</label>
-              <input className="input is-info" onChange={this.handleChange}  type="username" name="username" value={this.state.username} placeholder={this.props.user.username}/><br/>
+              <input className="input is-info" onChange={this.handleChange}  type="username" name="username" value={this.state.username}/><br/>
               <div className="has-text-centered">
                 <input className="button is-success is-outlined" type="submit" value="Update User Info" />
                 <Link className="button is-warning is-outlined" to="/profile">Discard Changes</Link>

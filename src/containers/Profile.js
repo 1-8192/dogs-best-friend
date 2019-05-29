@@ -31,14 +31,18 @@ class Profile extends Component {
     if (this.state.dogsHidden === true ) {
       return null
     } else {
-      return (
-        <Fragment>
-          <h3> GRATEFUL PUPS YOU'VE HELPED</h3><br/>
-          <div className="columns is-multiline is-centered is-3-desktop">
-            {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
-          </div><br/>
-        </Fragment>
-      )
+      if (this.props.user.dogs.length > 0) {
+        return (
+          <Fragment>
+            <h3> GRATEFUL PUPS YOU'VE HELPED</h3><br/>
+            <div className="columns is-multiline is-centered is-3-desktop">
+              {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
+            </div><br/>
+          </Fragment>
+        )
+      } else {
+        return <h3>Please donate to the pups!</h3>
+      }
     }
   }
 
@@ -56,7 +60,7 @@ class Profile extends Component {
         </Fragment>
       )
     } else {
-      return null
+      return <h3>No payment activity to date</h3>
       }
     }
   }
