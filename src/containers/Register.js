@@ -21,7 +21,7 @@ class Register extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    let url = "http://localhost:3005/api/v1/register"
+    let url = "https://dogsbestfriend-backend.herokuapp.com/api/v1/register"
     let newUser = this.state
 
     this.props.registerOrLoginUser(url, newUser)

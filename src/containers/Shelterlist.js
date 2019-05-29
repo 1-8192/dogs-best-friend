@@ -10,7 +10,7 @@ import { fetchShelters} from '../redux/shelterActions'
 class Shelterlist extends Component {
 
 componentDidMount(){
-  this.props.fetchShelters('http://localhost:3005/api/v1/shelters')
+  this.props.fetchShelters('https://dogsbestfriend-backend.herokuapp.com/api/v1/shelters')
 }
 
   render() {

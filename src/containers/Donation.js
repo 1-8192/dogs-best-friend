@@ -27,7 +27,7 @@ class Donation extends Component {
       loading: !this.state.loading
     })
     //post charge to my backend
-    let url = "http://localhost:3005/api/v1/payments"
+    let url = "https://dogsbestfriend-backend.herokuapp.com/api/v1/payments"
     let donation = {
       amount: this.state.amount,
       note: this.state.note,
@@ -37,7 +37,7 @@ class Donation extends Component {
     this.props.postDonation(url, donation)
 
     //post charge to stripe
-    let url2 = "http://localhost:3005/api/v1/charges"
+    let url2 = "https://dogsbestfriend-backend.herokuapp.com/api/v1/charges"
     let chargeToken = await this.props.stripe.createToken({name: "Name"})
     let charge = {
       amount: this.state.amount * 100,

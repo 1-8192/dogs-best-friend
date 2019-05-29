@@ -16,7 +16,7 @@ class Doglist extends Component {
   }
 
   handleClick = () => {
-    this.props.fetchDogs('http://localhost:3005/api/v1/need')
+    this.props.fetchDogs('https://dogsbestfriend-backend.herokuapp.com/api/v1/need')
     this.setState({
       dogsAreSorted: !this.state.dogsAreSorted
     })

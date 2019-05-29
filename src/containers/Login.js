@@ -17,7 +17,7 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    let url = "http://localhost:3005/api/v1/login"
+    let url = "https://dogsbestfriend-backend.herokuapp.com/api/v1/login"
     let logUser = this.state
 
     this.props.registerOrLoginUser(url, logUser)
