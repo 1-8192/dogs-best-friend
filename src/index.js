@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 //Styling
 import 'bulma/css/bulma.css'
@@ -19,9 +19,9 @@ const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__
 
 ReactDOM.render(
   <Provider store = {store}>
-    <HashRouter>
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
