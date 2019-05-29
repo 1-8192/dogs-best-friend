@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -7,20 +7,78 @@ import { logOut, deleteUser } from '../redux/userActions'
 
 //Components
 import DogCard from '../components/DogCard'
+import PaymentCard from '../components/PaymentCard'
 
 class Profile extends Component {
+  state = {
+    dogsHidden: true,
+    paymentsHidden: true
+  }
+
+  revealDogs =() => {
+    this.setState({
+      dogsHidden: !this.state.dogsHidden
+    })
+  }
+
+  revealPayments =() => {
+    this.setState({
+      paymentsHidden: !this.state.paymentsHidden
+    })
+  }
+
+  showHelpedDogs = () => {
+    if (this.state.dogsHidden === true ) {
+      return null
+    } else {
+      return (
+        <Fragment>
+          <h3> GRATEFUL PUPS YOU'VE HELPED</h3><br/>
+          <div className="columns is-multiline is-centered is-3-desktop">
+            {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
+          </div><br/>
+        </Fragment>
+      )
+    }
+  }
+
+  showPayments = () => {
+    if (this.state.paymentsHidden === true) {
+      return null
+    } else {
+      if (this.props.user.payments.length > 0){
+      return (
+        <Fragment>
+          <h3> PAYMENT HISTORY</h3><br/>
+          <div className="columns is-multiline is-centered is-3-desktop">
+            {this.props.user.payments.map(singlePayment => <PaymentCard payment={singlePayment} />)}
+          </div><br/>
+        </Fragment>
+      )
+    } else {
+      return null
+      }
+    }
+  }
 
   render() {
   return (
     <div>
       { this.props.user ?
         <section>
+          <aside class="menu">
+          <p class="menu-label">
+          Activity
+          </p>
+          <ul class="menu-list">
+          <li><a onClick={this.revealDogs}>Dogs you have helped</a></li>
+          <li><a onClick={this.revealPayments}>Payments</a></li>
+          </ul>
+        </aside>
           <div className="container has-text-centered text-is-strong">
             <h1> Welcome, {this.props.user.username}! </h1><br/>
-            <h3> GRATEFUL PUPS YOU'VE HELPED</h3><br/>
-            <div className="columns is-multiline is-centered is-3-desktop">
-              {this.props.user.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
-            </div><br/>
+            {this.showHelpedDogs()}
+            {this.showPayments()}
             <h3>Total donated to date: ${this.props.totalPayments}</h3>
             <Link className="button is-info is-outlined" to="/edit_profile">Edit Profile</Link>
             <input onClick={this.props.logOut} className="button is-warning is-outlined" type="submit" value="Log Out" />

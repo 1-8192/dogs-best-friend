@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 //Actions
 import { editUser } from '../redux/userActions'
@@ -39,6 +40,7 @@ class EditProfile extends Component {
               <input className="input is-info" onChange={this.handleChange}  type="username" name="username" value={this.state.username} placeholder={this.props.user.username}/><br/>
               <div className="has-text-centered">
                 <input className="button is-success" type="submit" value="Update User Info" />
+                <Link className="button is-warning" to="/profile">Discard Changes</Link>
               </div>
             </form>
         </div> : <h1>Oops, you don't have access to this page :-( </h1>}
