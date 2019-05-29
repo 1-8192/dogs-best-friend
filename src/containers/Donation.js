@@ -11,7 +11,7 @@ class Donation extends Component {
       amount: "",
       note: "",
       isMessageHidden: true,
-      modalState: "modal is-active",
+      modalState: "modal",
       loading: false
     }
 
