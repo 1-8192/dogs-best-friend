@@ -8,7 +8,7 @@ const DogCard = (props) => {
   }
 
   return (
-    <div className="card is-shadowless column is-one-third zoom has-background-white-ter">
+    <div className="card is-shadowless column is-one-third zoom has-background-white">
       <div className="card-image">
         <figure className="image is-square is-size-1-mobile">
           <img src={props.dog.image_url} alt={props.dog.name}/>
