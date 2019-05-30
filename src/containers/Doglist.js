@@ -43,7 +43,7 @@ class Doglist extends Component {
         <div className="box has-text-centered">
           check in on a friend  <Search handleSearch={this.handleSearch} /><br/>
           {this.state.dogsAreSorted ?
-            <p>These dogs have received the least amount of donations to date:</p> :
+            <p>These dogs have received the least amount of donations to date</p> :
             <Fragment>
               <button onClick={this.handleClick} className="button is-link is-rounded">Show me dogs who need my help!</button><br/>
             </Fragment>}
