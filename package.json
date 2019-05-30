@@ -46,6 +46,8 @@
     ]
   },
   "devDependencies": {
+    "react-dev-utils": "^9.0.1",
+    "react-scripts": "^3.0.1",
     "react-testing-library": "^7.0.1"
   }
 }

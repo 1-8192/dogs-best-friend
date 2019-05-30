@@ -27,7 +27,7 @@ import { persistAuthOnRefresh } from './redux/userActions'
 class App extends Component {
 
   componentDidMount(){
-    this.props.persistAuthOnRefresh("http://localhost:3005/api/v1/profile")
+    this.props.persistAuthOnRefresh("https://dogsbestfriend-backend.herokuapp.com/api/v1/profile")
   }
 
   render() {

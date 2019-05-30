@@ -55,7 +55,7 @@ class Profile extends Component {
         <Fragment>
           <h3> PAYMENT HISTORY</h3><br/>
           <div className="columns is-multiline is-centered is-3-desktop">
-            {this.props.user.payments.map(singlePayment => <PaymentCard payment={singlePayment} />)}
+            {this.props.user.payments.map(singlePayment => <PaymentCard key={singlePayment.id} payment={singlePayment} />)}
           </div><br/>
         </Fragment>
       )
