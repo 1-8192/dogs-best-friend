@@ -45,6 +45,7 @@ class DogDisplay extends Component {
                 dog: this.props.dog
               }}}><strong>Donate to help {this.props.dog.name}</strong></Link> :
               <h3><strong>Please log in or register to help {this.props.dog.name}</strong></h3>}
+              <br/><Link className="button is-info" to="/dogs">back to dogs</Link>
           </div>
         </div>
       </section>
