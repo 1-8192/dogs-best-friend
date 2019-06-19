@@ -9,7 +9,7 @@ Adopting or fostering a dog is a substantial commitment, and not one everybody c
 #Installation Guide
 
 1. To run locally, please copy down the repo to your machine.
-2. `NPM install`
+2. `npm install`
 3. Make sure you have the backend as well (https://github.com/1-8192/dogs_best_friend_backend)
 3. Amend fetch routing according to your local servers
 4. Fire it up with `npm start`
