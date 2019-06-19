@@ -6,7 +6,7 @@ Adopting or fostering a dog is a substantial commitment, and not one everybody c
 
 0.1.0
 
-Install Guide
+#Installation Guide
 
 1. To run locally, please copy down the repo to your machine.
 2. `NPM install`
@@ -14,10 +14,10 @@ Install Guide
 3. Amend fetch routing according to your local servers
 4. Fire it up with `npm start`
 
-Authors
+#Authors
 
 Alessandro Allegranzi (1-8192)
 
-Acknowledgments
+#Acknowledgments
 
 Libraries/frameworks used for this project include Bulma UI, React, Redux, and Rails in the backend. Special thanks for the Stripe API for being super user friendly.
