@@ -7,9 +7,9 @@ import { fetchShowDog } from '../redux/dogActions'
 
 class DogDisplay extends Component {
 
-  componentDidMount(){
-    this.props.fetchShowDog(`https://dogsbestfriend-backend.herokuapp.com/api/v1/dogs/${this.props.location.state.dogId}`)
-  }
+  // componentDidMount(){
+  //   this.props.fetchShowDog(`https://dogsbestfriend-backend.herokuapp.com/api/v1/dogs/${this.props.location.state.dogId}`)
+  // }
 
   render() {
     return (
