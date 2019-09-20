@@ -38,6 +38,12 @@ class Doglist extends Component {
   }
 
   render () {
+    if (this.state.displayDogs === []) {
+      return (
+        <div className="loader">Loading Pups</div>
+      )
+    }
+    
     return (
       <Fragment>
         <div className="box has-text-centered">
