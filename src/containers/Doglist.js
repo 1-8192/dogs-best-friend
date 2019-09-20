@@ -17,9 +17,9 @@ class Doglist extends Component {
     displayDogs: []
   }
 
-  // componentDidMount() {
-  //   this.props.fetchDogs("https://dogsbestfriend-backend.herokuapp.com/api/v1/dogs")
-  // }
+  componentDidMount() {
+    this.props.fetchDogs("https://dogsbestfriend-backend.herokuapp.com/api/v1/dogs")
+  }
 
   handleClick = () => {
     this.props.fetchDogs('https://dogsbestfriend-backend.herokuapp.com/api/v1/need')
