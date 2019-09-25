@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { connect }  from 'react-redux'
-import { MoonLoader } from 'react-spinners/MoonLoader'
 
 //Components
 import DogCard from '../components/DogCard'
@@ -15,15 +14,11 @@ class Doglist extends Component {
 
   state = {
     dogsAreSorted: false,
-    displayDogs: [],
-    loading: false
+    displayDogs: []
   }
 
   componentDidMount() {
     this.props.fetchDogs("https://dogsbestfriend-backend.herokuapp.com/api/v1/dogs")
-    this.setState({
-      loading: !this.state.loading
-    })
   }
 
   handleClick = () => {
@@ -49,7 +44,7 @@ class Doglist extends Component {
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading Pups...</span>
         </div>
-      </div>
+        </div>
       )
     }
     
