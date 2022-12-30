@@ -10,7 +10,7 @@
     "bulma": "^0.7.4",
     "bulma-extensions": "^6.2.7",
     "dotenv": "^8.0.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "react": "^16.8.6",
     "react-bulma-components": "2.3.0",
     "react-dom": "^16.8.6",
